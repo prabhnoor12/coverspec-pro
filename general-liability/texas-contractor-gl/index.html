@@ -84,6 +84,7 @@
 }
   </script>
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/spec-capture.css">
 </head>
 <body>
   <header class="site-header">
@@ -114,12 +115,21 @@
       <div class="hero-badge">📍 Texas Commercial CGL • CG 20 10 / 20 37 • Municipal Bonds</div>
       <h1 class="hero-title">Texas Commercial General Liability (GL) &amp; Bond Calculator</h1>
       <p class="hero-lead">Benchmark Texas commercial GL rates for Houston, Dallas-Fort Worth, Austin, and San Antonio contractors—including subcontractor COI audit rules and local municipal license bonds.</p>
-      <a href="../" class="btn btn-primary">⚡ Launch Interactive General Liability &amp; Bond Calculator &rarr;</a>
+      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
+        <a href="../" class="btn btn-primary">⚡ Launch Interactive General Liability &amp; Bond Calculator &rarr;</a>
+        <a href="#compare-markets" class="btn btn-secondary">🛡️ Compare Live A-Rated Quotes &darr;</a>
+      </div>
     </div>
   </section>
 
   <main class="main-content">
     <div class="container">
+      <section class="section-block" id="compare-markets">
+        <span class="section-kicker">Instant Online Binding</span>
+        <h2 class="section-heading">Top A-Rated Carriers for Texas — Commercial GL &amp; Sub Audits</h2>
+        <div class="csp-carriers-card" id="pseoCarrierBox" data-line="general-liability"></div>
+      </section>
+
       <section class="section-block">
         <span class="section-kicker">Jurisdiction Underwriting Standards</span>
         <h2 class="section-heading">Key Regulatory &amp; Rating Factors</h2>
@@ -151,10 +161,15 @@
 
       <section class="section-block">
         <span class="section-kicker">Other Editions</span>
-        <h2 class="section-heading">More General Liability State &amp; Industry Guides</h2>
+        <h2 class="section-heading">More General Liability State &amp; Trade Guides</h2>
         <div class="hub-grid"><a href="../california-cslb-bond/" class="hub-card"><strong>📍 California — CSLB $25k Bond &amp; GL</strong><span>California CSLB • $25,000 Surety Bond • ISO CGL</span></a>
 <a href="../florida-dbpr-gl/" class="hub-card"><strong>📍 Florida — DBPR GL &amp; Coastal Rules</strong><span>Florida DBPR • Statutory GL Minimums • Hurricane Risk</span></a>
-<a href="../new-york-labor-law-240/" class="hub-card"><strong>📍 New York — Labor Law 240/241 GL</strong><span>NY Labor Law §§240–241 • Action-Over Coverage • DOB</span></a></div>
+<a href="../new-york-labor-law-240/" class="hub-card"><strong>📍 New York — Labor Law 240/241 GL</strong><span>NY Labor Law §§240–241 • Action-Over Coverage • DOB</span></a>
+<a href="../california-gc-gl/" class="hub-card"><strong>📍 California General Contractor GL</strong><span>California CGL • ~$7.25/$1k Rev • $25,000 CSLB Bond</span></a>
+<a href="../california-electrical-gl/" class="hub-card"><strong>📍 California Electrical Contractor GL</strong><span>California CGL • ~$5.12/$1k Rev • CSLB C-10 $25k Bond</span></a>
+<a href="../california-plumbing-hvac-gl/" class="hub-card"><strong>📍 California Plumbing &amp; HVAC GL</strong><span>California CGL • ~$6.19/$1k Rev • CSLB C-36/C-20 Completed Ops Coverage</span></a>
+<a href="../texas-gc-gl/" class="hub-card"><strong>📍 Texas General Contractor GL</strong><span>Texas CGL • ~$5.45/$1k Rev • Texas Commercial GC COI</span></a>
+<a href="../texas-electrical-gl/" class="hub-card"><strong>📍 Texas Electrical Contractor GL</strong><span>Texas CGL • ~$3.85/$1k Rev • TDLR Electrical Statutory GL Minimum</span></a></div>
       </section>
     </div>
   </main>
@@ -165,5 +180,18 @@
       <div class="footer-links"><a href="../../">Home</a><a href="../">Calculator</a><a href="../../sitemap.xml">Sitemap</a></div>
     </div>
   </footer>
+
+  <script src="../../js/affiliate-config.js"></script>
+  <script>
+    (function() {
+      var box = document.getElementById('pseoCarrierBox');
+      if (!box || !window.COVERSPEC_CARRIERS) return;
+      var list = window.COVERSPEC_CARRIERS[box.getAttribute('data-line')] || [];
+      box.innerHTML = '<div class="csp-carriers-head"><span class="csp-carriers-title">⚡ Compare Instant Online Commercial Quotes</span><span class="csp-carriers-disclosure">Affiliate Partners</span></div>' +
+        '<div class="csp-carrier-list">' + list.map(function(c) {
+          return '<div class="csp-carrier-row"><div class="csp-carrier-info"><div class="csp-carrier-top"><span class="csp-carrier-name">' + c.name + '</span><span class="csp-carrier-badge">' + c.badge + '</span></div><div class="csp-carrier-perk">' + c.perk + '</div></div><a href="' + c.url + '" target="_blank" rel="sponsored noopener noreferrer" class="csp-carrier-cta">Check Rate &rarr;</a></div>';
+        }).join('') + '</div>';
+    })();
+  </script>
 </body>
 </html>

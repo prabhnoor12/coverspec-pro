@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-CoverSpec Pro™ — Static Site Builder, OG Image Generator, pSEO Engine & Validator
+CoverSpec Pro™ — 45-Page Programmatic State & Trade SEO Builder (Way A Affiliate Edition)
 Generates:
   1. 1200x630 OpenGraph blueprint PNG (assets/og-coverspec-pro.png)
-  2. 12 deeply differentiated State / Regulatory landing pages (4 per tool)
+  2. 45 actuarially computed State/Trade/Industry landing pages (20 WC + 15 GL + 10 Cyber)
+     with live affiliate carrier comparison cards powered by ../../js/affiliate-config.js
   3. Parent calculator & homepage internal link hubs
-  4. Valid 16-URL sitemap.xml
+  4. Valid 49-URL sitemap.xml + full JSON-LD & CSS verification
 """
 
 import html
@@ -25,13 +26,11 @@ TOOLS = {
     "cyber-liability": {"name": "Cyber Liability & Breach Calculator", "short": "Cyber Liability"},
 }
 
+# --- 1. FLAGSHIP 12 CORE REGULATORY PAGES ---
 PAGES = [
-    # --- WORKERS' COMP (4) ---
     {
-        "tool": "workers-comp",
-        "slug": "texas-non-subscriber",
-        "short": "Texas — TDI & Non-Subscriber Rules",
-        "badge": "Texas TDI • Optional WC vs. Contract COI",
+        "tool": "workers-comp", "slug": "texas-non-subscriber",
+        "short": "Texas — TDI & Non-Subscriber Rules", "badge": "Texas TDI • Optional WC vs. Contract COI",
         "title": "Texas Workers’ Comp Cost Calculator (TDI & Non-Subscriber Rules)",
         "desc": "Calculate Texas commercial workers' comp premiums by NCCI class code and EMR. Compare statutory Texas TDI coverage vs. non-subscriber risks and GC COI mandates.",
         "h1": "Texas Commercial Workers’ Comp &amp; EMR Calculator (TDI Rules)",
@@ -48,10 +47,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "workers-comp",
-        "slug": "california-wcirb",
-        "short": "California — WCIRB & CSLB Mandate",
-        "badge": "California WCIRB • CSLB License Requirement",
+        "tool": "workers-comp", "slug": "california-wcirb",
+        "short": "California — WCIRB & CSLB Mandate", "badge": "California WCIRB • CSLB License Requirement",
         "title": "California Workers’ Comp & EMR Calculator (WCIRB & CSLB Rules)",
         "desc": "Estimate California commercial workers' comp premiums using WCIRB class codes, dual-wage thresholds, and X-Mod (EMR) impact for contractors and businesses.",
         "h1": "California Workers’ Comp &amp; X-Mod Calculator (WCIRB &amp; CSLB)",
@@ -68,10 +65,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "workers-comp",
-        "slug": "florida-construction",
-        "short": "Florida — NCCI Construction Mandate",
-        "badge": "Florida DFS • 1+ Construction / 4+ Non-Construction",
+        "tool": "workers-comp", "slug": "florida-construction",
+        "short": "Florida — NCCI Construction Mandate", "badge": "Florida DFS • 1+ Construction / 4+ Non-Construction",
         "title": "Florida Workers’ Comp Cost Calculator (Construction & NCCI Rates)",
         "desc": "Calculate Florida commercial workers' compensation premiums by NCCI class code, payroll, and EMR under Florida DFS 1-employee construction mandates.",
         "h1": "Florida Workers’ Comp &amp; EMR Calculator (DFS &amp; NCCI Rates)",
@@ -88,10 +83,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "workers-comp",
-        "slug": "new-york-nycirb",
-        "short": "New York — NYCIRB & WCB Rules",
-        "badge": "New York NYCIRB • NYSIF • WCB C-105.2",
+        "tool": "workers-comp", "slug": "new-york-nycirb",
+        "short": "New York — NYCIRB & WCB Rules", "badge": "New York NYCIRB • NYSIF • WCB C-105.2",
         "title": "New York Workers’ Comp Cost Calculator (NYCIRB & WCB C-105.2)",
         "desc": "Calculate New York commercial workers' comp premiums using NYCIRB class codes, payroll caps, EMR mod impact, and WCB Form C-105.2 permit rules.",
         "h1": "New York Workers’ Comp &amp; EMR Calculator (NYCIRB &amp; WCB)",
@@ -107,13 +100,9 @@ PAGES = [
             ("Does New York cap high construction wages on workers' comp audits?", "Yes. Under NYCIRB rules, employers meeting specific construction territory/wage criteria can cap auditable weekly payroll per employee.")
         ]
     },
-
-    # --- GENERAL LIABILITY (4) ---
     {
-        "tool": "general-liability",
-        "slug": "california-cslb-bond",
-        "short": "California — CSLB $25k Bond & GL",
-        "badge": "California CSLB • $25,000 Surety Bond • ISO CGL",
+        "tool": "general-liability", "slug": "california-cslb-bond",
+        "short": "California — CSLB $25k Bond & GL", "badge": "California CSLB • $25,000 Surety Bond • ISO CGL",
         "title": "California Contractor GL & CSLB $25,000 Bond Calculator",
         "desc": "Estimate California commercial general liability (GL) premiums and mandatory $25,000 CSLB contractor license surety bond costs by revenue and credit tier.",
         "h1": "California Contractor GL &amp; CSLB $25,000 Bond Calculator",
@@ -130,10 +119,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "general-liability",
-        "slug": "texas-contractor-gl",
-        "short": "Texas — Commercial GL & Sub Audits",
-        "badge": "Texas Commercial CGL • CG 20 10 / 20 37 • Municipal Bonds",
+        "tool": "general-liability", "slug": "texas-contractor-gl",
+        "short": "Texas — Commercial GL & Sub Audits", "badge": "Texas Commercial CGL • CG 20 10 / 20 37 • Municipal Bonds",
         "title": "Texas Commercial General Liability (GL) Cost Calculator",
         "desc": "Calculate Texas commercial general liability insurance premiums for contractors, trades, and businesses by gross revenue, subcontractor spend, and umbrella limits.",
         "h1": "Texas Commercial General Liability (GL) &amp; Bond Calculator",
@@ -150,10 +137,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "general-liability",
-        "slug": "florida-dbpr-gl",
-        "short": "Florida — DBPR GL & Coastal Rules",
-        "badge": "Florida DBPR • Statutory GL Minimums • Hurricane Risk",
+        "tool": "general-liability", "slug": "florida-dbpr-gl",
+        "short": "Florida — DBPR GL & Coastal Rules", "badge": "Florida DBPR • Statutory GL Minimums • Hurricane Risk",
         "title": "Florida Commercial General Liability (GL) Calculator (DBPR Rules)",
         "desc": "Calculate Florida commercial general liability premiums for DBPR-licensed contractors, retail, and commercial operators by revenue, trade class, and coverage limits.",
         "h1": "Florida Commercial General Liability Calculator (DBPR Standards)",
@@ -170,10 +155,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "general-liability",
-        "slug": "new-york-labor-law-240",
-        "short": "New York — Labor Law 240/241 GL",
-        "badge": "NY Labor Law §§240–241 • Action-Over Coverage • DOB",
+        "tool": "general-liability", "slug": "new-york-labor-law-240",
+        "short": "New York — Labor Law 240/241 GL", "badge": "NY Labor Law §§240–241 • Action-Over Coverage • DOB",
         "title": "New York Commercial GL Calculator (Labor Law 240/241 Impact)",
         "desc": "Estimate New York and NYC commercial general liability premiums accounting for Labor Law 240/241 Scaffold Law surcharges, Action-Over coverage, and DOB limits.",
         "h1": "New York Commercial General Liability Calculator (Labor Law 240)",
@@ -189,13 +172,9 @@ PAGES = [
             ("What is an Action-Over exclusion in NY commercial GL?", "It strips away coverage when an injured employee sues the property owner/GC and the owner tenders the claim back to the subcontractor under contract indemnity.")
         ]
     },
-
-    # --- CYBER LIABILITY (4) ---
     {
-        "tool": "cyber-liability",
-        "slug": "healthcare-hipaa",
-        "short": "Healthcare & Clinics — HIPAA Cyber",
-        "badge": "HIPAA / HITECH • PHI Breach Fines • Ransomware",
+        "tool": "cyber-liability", "slug": "healthcare-hipaa",
+        "short": "Healthcare & Clinics — HIPAA Cyber", "badge": "HIPAA / HITECH • PHI Breach Fines • Ransomware",
         "title": "Healthcare & Dental HIPAA Cyber Insurance Calculator",
         "desc": "Calculate commercial cyber liability premiums, recommended $2M–$5M policy limits, and HIPAA PHI data breach exposure for medical clinics, dental practices, and medspas.",
         "h1": "Healthcare &amp; Dental HIPAA Cyber Liability Calculator",
@@ -212,10 +191,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "cyber-liability",
-        "slug": "financial-sec-ftc",
-        "short": "CPA, Finance & Legal — FTC / SEC",
-        "badge": "FTC Safeguards Rule • Wire Fraud • WISP Compliance",
+        "tool": "cyber-liability", "slug": "financial-sec-ftc",
+        "short": "CPA, Finance & Legal — FTC / SEC", "badge": "FTC Safeguards Rule • Wire Fraud • WISP Compliance",
         "title": "CPA, Financial & Law Firm Cyber Insurance Calculator (FTC Safeguards)",
         "desc": "Estimate commercial cyber liability premiums and Funds Transfer Fraud limits for CPA firms, RIAs, wealth advisors, and law firms under the FTC Safeguards Rule.",
         "h1": "CPA, Financial &amp; Law Firm Cyber Liability Calculator (FTC / SEC)",
@@ -232,10 +209,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "cyber-liability",
-        "slug": "saas-soc2",
-        "short": "B2B SaaS & Tech — SOC 2 & Tech E&O",
-        "badge": "SOC 2 Enterprise Contracts • $2M–$5M Cyber + Tech E&O",
+        "tool": "cyber-liability", "slug": "saas-soc2",
+        "short": "B2B SaaS & Tech — SOC 2 & Tech E&O", "badge": "SOC 2 Enterprise Contracts • $2M–$5M Cyber + Tech E&O",
         "title": "B2B SaaS & Tech Cyber Liability Calculator (SOC 2 Limits)",
         "desc": "Size $2M–$5M enterprise cyber liability and Tech E&O limits required by enterprise vendor security questionnaires and SOC 2 compliance.",
         "h1": "B2B SaaS &amp; Tech Cyber Liability Calculator (SOC 2 &amp; Enterprise)",
@@ -252,10 +227,8 @@ PAGES = [
         ]
     },
     {
-        "tool": "cyber-liability",
-        "slug": "construction-wire-fraud",
-        "short": "Construction GCs — ACH & Wire Fraud",
-        "badge": "Construction ACH / BEC Fraud • Ransomware • ERP Lockout",
+        "tool": "cyber-liability", "slug": "construction-wire-fraud",
+        "short": "Construction GCs — ACH & Wire Fraud", "badge": "Construction ACH / BEC Fraud • Ransomware • ERP Lockout",
         "title": "Construction & GC Cyber Liability Calculator (Wire & ACH Fraud)",
         "desc": "Calculate commercial cyber insurance premiums and Funds Transfer Fraud limits for general contractors, subcontractors, and developers protecting against fake vendor ACH scams.",
         "h1": "Construction &amp; GC Cyber Liability Calculator (Wire &amp; ACH Fraud)",
@@ -270,8 +243,124 @@ PAGES = [
             ("Why do commercial general contractors need cyber insurance?", "GCs wire large progress payments to dozens of subcontractors every month, making them prime targets for invoice-spoofing wire fraud and accounting-server ransomware."),
             ("Does my Commercial Crime policy cover social engineering wire fraud?", "Standard Crime policies often exclude 'voluntarily parted' funds tricked via spoofed emails unless you add an explicit Social Engineering / Funds Transfer Fraud endorsement.")
         ]
-    }
+    },
 ]
+
+# --- 2. PROGRAMMATIC ACTUARIAL EXPANSION (+33 HIGH-INTENT STATE x TRADE PAGES = 45 TOTAL) ---
+
+WC_STATE_TRADES = [
+    ("texas", "Texas", "TDI", 0.78, "5190", "Electrical Contractor", 2.85, 500000, "TDLR Electrical License & GC COI"),
+    ("texas", "Texas", "TDI", 0.78, "5551", "Commercial Roofing", 14.80, 350000, "High-Hazard Fall Protection & Safety Credit"),
+    ("texas", "Texas", "TDI", 0.78, "5183", "Plumbing & HVAC", 3.65, 450000, "TSBPE / TDLR Mechanical Trade"),
+    ("texas", "Texas", "TDI", 0.78, "7219", "Commercial Trucking", 8.95, 600000, "DOT Interstate & Oilfield Hauling"),
+    ("california", "California", "WCIRB", 1.48, "5190", "Electrical Contractor", 2.85, 600000, "CSLB C-10 & WCIRB Dual-Wage Rule"),
+    ("california", "California", "WCIRB", 1.48, "5551", "Commercial Roofing", 14.80, 400000, "CSLB C-39 Mandatory WC (Even 0 Employees)"),
+    ("california", "California", "WCIRB", 1.48, "5183", "Plumbing & HVAC", 3.65, 550000, "CSLB C-36 / C-20 Dual-Wage Discount"),
+    ("california", "California", "WCIRB", 1.48, "7219", "Commercial Trucking", 8.95, 650000, "CA AB5 Owner-Operator Audit Rules"),
+    ("florida", "Florida", "NCCI", 1.05, "5190", "Electrical Contractor", 2.85, 450000, "FL DFS 1+ Employee Construction Rule"),
+    ("florida", "Florida", "NCCI", 1.05, "5551", "Commercial Roofing", 14.80, 350000, "FL DFS Stop-Work Sweep High Priority"),
+    ("florida", "Florida", "NCCI", 1.05, "5183", "Plumbing & HVAC", 3.65, 480000, "FL DBPR Mechanical Contractor Rule"),
+    ("florida", "Florida", "NCCI", 1.05, "7219", "Commercial Trucking", 8.95, 550000, "Port & Interstate Freight Hauling"),
+    ("new-york", "New York", "NYCIRB", 1.42, "5190", "Electrical Contractor", 2.85, 650000, "NYCIRB Weekly Wage Cap & DOB C-105.2"),
+    ("new-york", "New York", "NYCIRB", 1.42, "5183", "Plumbing & HVAC", 3.65, 600000, "NYC Master Plumber WCB C-105.2 Filing"),
+    ("illinois", "Illinois", "NCCI", 1.15, "5403", "Commercial Construction", 7.40, 500000, "IWCC Mandatory 1+ Employee Rule"),
+    ("georgia", "Georgia", "NCCI", 0.96, "5403", "Commercial Construction", 7.40, 450000, "GA SBWC 3+ Employee Statutory Rule"),
+]
+
+for st_slug, st_name, bureau, mult, code, trade, base_rate, payroll, reg_note in WC_STATE_TRADES:
+    eff_rate = round(base_rate * mult, 2)
+    annual = int(round((payroll / 100.0) * eff_rate))
+    emr_save = int(round(annual * 0.12))
+    slug = f"{st_slug}-{trade.lower().replace(' & ', '-').replace(' ', '-')}-{code}" if code not in ("5403",) else f"{st_slug}-construction-wc"
+    PAGES.append({
+        "tool": "workers-comp",
+        "slug": slug,
+        "short": f"{st_name} {trade} ({code})",
+        "badge": f"{st_name} {bureau} • NCCI Class {code} • ${eff_rate:.2f}/$100",
+        "title": f"{st_name} {trade} Workers’ Comp Rate Calculator (Class {code})",
+        "desc": f"Calculate {st_name} {trade.lower()} workers' compensation premiums under {bureau} Class {code} (~${eff_rate:.2f} per $100 payroll). Compare EMR credits & live A-rated quotes.",
+        "h1": f"{st_name} {trade} Workers’ Comp Calculator (Class {code})",
+        "lead": f"Benchmark {st_name} {trade.lower()} workers’ compensation premiums using {bureau} Class Code {code} manual loss costs (~${eff_rate:.2f} per $100 payroll), EMR credits, and Pay-As-You-Go billing.",
+        "table": [
+            (f"Class Code {code}", f"{trade} Manual Rate", f"Estimated {st_name} manual rate is ~${eff_rate:.2f} per $100 of auditable gross payroll (before EMR and schedule credits)."),
+            (f"{st_name} {bureau}", "Jurisdiction Compliance", f"{reg_note}. Ensure subcontractor COIs are collected before year-end payroll audit."),
+            ("EMR Safety Credit", "0.88 vs. 1.00 Mod Savings", f"Improving EMR by 12 points on ${payroll:,} payroll saves approximately ${emr_save:,}/year in {st_name}.")
+        ],
+        "example": f"A {st_name} {trade.lower()} firm (Class {code}) with ${payroll:,} annual payroll at 1.00 EMR budgets ~${annual:,}/yr (~${int(annual/12):,}/mo). Dropping EMR to 0.88 saves ~${emr_save:,}/yr.",
+        "faqs": [
+            (f"What is the workers' comp rate per $100 payroll for {trade.lower()} in {st_name}?", f"Under {st_name} {bureau} Class {code}, commercial {trade.lower()} firms typically benchmark around ${eff_rate:.2f} per $100 of auditable payroll before EMR credits or schedule discounts."),
+            (f"How can a {st_name} {trade.lower()} company lower its workers' comp audit bill?", f"Separate straight-time from overtime half-time pay, verify office staff under clerical Class 8810, collect COIs from every subcontractor, and enroll in Pay-As-You-Go payroll sync.")
+        ]
+    })
+
+GL_STATE_TRADES = [
+    ("california-gc-gl", "California", "General Contractor", 5.80, 1.25, 1500000, "$25,000 CSLB Bond + CG 20 10 / 20 37"),
+    ("california-electrical-gl", "California", "Electrical Contractor", 4.10, 1.25, 950000, "CSLB C-10 $25k Bond + $1M/$2M GL"),
+    ("california-plumbing-hvac-gl", "California", "Plumbing & HVAC", 4.95, 1.25, 1100000, "CSLB C-36/C-20 Completed Ops Coverage"),
+    ("texas-gc-gl", "Texas", "General Contractor", 5.80, 0.94, 1500000, "Texas Commercial GC COI + Sub Audit Rules"),
+    ("texas-electrical-gl", "Texas", "Electrical Contractor", 4.10, 0.94, 850000, "TDLR Electrical Statutory GL Minimum"),
+    ("texas-roofing-gl", "Texas", "Commercial Roofing", 12.50, 0.94, 900000, "Commercial Torch-Down / Open-Roof Endorsement"),
+    ("florida-gc-gl", "Florida", "General Contractor", 5.80, 1.18, 1400000, "FL DBPR Certified GC Statutory GL"),
+    ("florida-roofing-gl", "Florida", "Commercial Roofing", 12.50, 1.18, 850000, "FL Coastal Wind & E&S Roofing Markets"),
+    ("new-york-gc-gl", "New York", "General Contractor", 5.80, 1.68, 2000000, "NY Labor Law 240/241 Full Action-Over"),
+    ("washington-li-bond-gl", "Washington", "General Contractor", 5.80, 1.08, 1200000, "WA L&I $30,000 GC Surety Bond + GL"),
+    ("illinois-contractor-gl", "Illinois", "Commercial Contractor", 5.20, 1.06, 1100000, "City of Chicago GC License GL Minimums"),
+]
+
+for slug, st_name, trade, rate1k, smult, rev, reg_note in GL_STATE_TRADES:
+    eff = round(rate1k * smult, 2)
+    annual = int(round((rev / 1000.0) * eff))
+    PAGES.append({
+        "tool": "general-liability",
+        "slug": slug,
+        "short": f"{st_name} {trade} GL",
+        "badge": f"{st_name} CGL • ~${eff:.2f}/$1k Rev • {reg_note.split('+')[0].strip()}",
+        "title": f"{st_name} {trade} General Liability (GL) Cost Calculator",
+        "desc": f"Calculate {st_name} {trade.lower()} commercial general liability (GL) insurance costs (~${eff:.2f} per $1k revenue), Umbrella limits, and state bond fees.",
+        "h1": f"{st_name} {trade} General Liability &amp; Bond Calculator",
+        "lead": f"Estimate annual Commercial General Liability premiums for {st_name} {trade.lower()} firms (~${eff:.2f} per $1,000 revenue) including {reg_note}.",
+        "table": [
+            ("ISO CGL Rating", f"{st_name} {trade} Rate", f"Benchmarks near ${eff:.2f} per $1,000 of self-performed gross receipts for $1M/$2M limits."),
+            ("Regulatory / COI", reg_note, "Verify Primary & Non-Contributory and Waiver of Subrogation endorsements on commercial contracts."),
+            ("Umbrella Stacking", "$2M Commercial Umbrella", "Adding a $2M Umbrella over $1M/$2M GL typically adds ~45%–55% to satisfy $3M project minimums.")
+        ],
+        "example": f"A {st_name} {trade.lower()} generating ${rev:,} in self-performed revenue budgets ~${annual:,}/yr (~${int(annual/12):,}/mo) for $1M/$2M Commercial General Liability.",
+        "faqs": [
+            (f"How much does General Liability insurance cost for a {trade.lower()} in {st_name}?", f"Commercial {trade.lower()} firms in {st_name} typically pay around ${eff:.2f} per $1,000 of annual revenue for $1M/$2M GL, depending on claims history and subcontractor ratio."),
+            (f"What COI endorsements do {st_name} commercial owners require?", "Most commercial contracts require Additional Insured (CG 20 10 ongoing & CG 20 37 completed operations), Primary & Non-Contributory wording, and Waiver of Subrogation.")
+        ]
+    })
+
+CYBER_EXTRAS = [
+    ("dental-practice-hipaa", "Dental Practices — HIPAA Cyber", "HIPAA PHI • Practice Management EHR • Ransomware", "Dental Practice HIPAA Cyber Insurance Calculator", "Size $1M–$2M standalone cyber coverage for dental offices protecting patient x-rays, EHR servers, and HIPAA OCR breach compliance.", 3800, 12000, "$2,000,000 Limit"),
+    ("law-firm-wire-fraud", "Law Firms — BEC & Wire Fraud", "ABA Ethics • Escrow Wire Fraud • Client Files", "Law Firm Cyber Liability & Wire Fraud Calculator", "Calculate standalone cyber liability and Funds Transfer Fraud limits for law firms and real estate title practices handling client escrow wires.", 5900, 15000, "$2,000,000 Limit"),
+    ("cpa-accounting-ftc", "CPA & Accounting — FTC WISP", "IRS Pub. 4557 • FTC Safeguards • Tax Season Ransomware", "CPA & Accounting Firm Cyber Liability Calculator", "Estimate commercial cyber insurance premiums for CPA and tax firms complying with the FTC Safeguards Rule and WISP mandates.", 6200, 18000, "$2,000,000 Limit"),
+    ("ecommerce-pci-dss", "E-Commerce & Retail — PCI-DSS", "PCI-DSS Fines • Payment Skimming • Downtime", "E-Commerce & Retail Cyber Insurance Calculator", "Benchmark commercial cyber premiums for online stores and multi-location retail protecting against payment skimming, PCI fines, and site outages.", 4400, 50000, "$2,000,000 Limit"),
+    ("manufacturing-ransomware", "Manufacturing — OT Ransomware", "Plant Shutdown • Supply Chain • Extortion", "Manufacturing & Logistics Cyber Liability Calculator", "Estimate cyber business interruption and ransomware extortion limits for manufacturers and distributors facing ERP/OT plant shutdown risks.", 7100, 10000, "$3,000,000 Limit"),
+    ("msp-managed-it-cyber", "MSPs & Managed IT — Tech E&O", "Downstream Client Breach • RMM Exploits • $3M–$5M", "MSP & Managed IT Cyber + Tech E&O Calculator", "Size combined Tech E&O and Cyber Liability limits for Managed Service Providers (MSPs) managing RMM tools across dozens of client networks.", 9400, 80000, "$3M–$5M Combined"),
+]
+
+for slug, short, badge, title, lead, est_prem, recs, rec_lim in CYBER_EXTRAS:
+    PAGES.append({
+        "tool": "cyber-liability",
+        "slug": slug,
+        "short": short,
+        "badge": badge,
+        "title": title,
+        "desc": f"{lead} Compare preferred MFA/EDR cyber premiums and live A-rated quotes.",
+        "h1": html.escape(title),
+        "lead": lead,
+        "table": [
+            ("Recommended Limit", rec_lim, f"Sized for {recs:,}+ sensitive records, forensic response, legal counsel, and business interruption."),
+            ("Security Controls", "MFA + EDR + Air-Gapped Backups", "Passing carrier security questionnaires lowers standalone commercial cyber quotes by 15%–35%."),
+            ("Est. Annual Benchmark", f"~${est_prem:,} / year", "Varies by gross revenue, prior claims, and Funds Transfer Fraud sublimits.")
+        ],
+        "example": f"A typical {short.split('—')[0].strip()} holding {recs:,} records with enforced MFA & EDR budgets ~${est_prem:,}/yr (~${int(est_prem/12):,}/mo) for {rec_lim} standalone cyber coverage.",
+        "faqs": [
+            (f"How much does cyber insurance cost for {short.split('—')[0].strip()}?", f"Firms with MFA and EDR typically budget around ${est_prem:,}/year for {rec_lim} standalone cyber coverage, scaling with revenue and record count."),
+            ("What disqualifies a business from preferred cyber liability rates?", "Missing Multi-Factor Authentication (MFA) on email/remote access, unpatched firewalls, or lacking offline immutable backups frequently triggers surcharges or declines.")
+        ]
+    })
 
 
 def load_font(size, bold=False):
@@ -317,7 +406,7 @@ def generate_og_image():
         draw.text((px + 16, py + 9), txt, fill=(6, 182, 212), font=f_p)
         px += pw + 12
 
-    draw.text((80, 520), "Instant Actuarial Benchmarks for CFOs, Business Owners & Commercial Contractors", fill=(100, 116, 139), font=load_font(22, False))
+    draw.text((80, 520), "Instant Actuarial Benchmarks + 45 State & Trade Underwriting Guides", fill=(100, 116, 139), font=load_font(22, False))
     img.save(out, "PNG", optimize=True)
     print(f"Generated {out}")
 
@@ -328,7 +417,8 @@ def build_pseo_page(p):
     tmeta = TOOLS[tool]
     url = f"{BASE_URL}/{tool}/{slug}/"
     parent_url = f"{BASE_URL}/{tool}/"
-    siblings = [x for x in PAGES if x["tool"] == tool and x["slug"] != slug]
+    # Link up to 8 sibling pages in same tool for tight crawl mesh
+    siblings = [x for x in PAGES if x["tool"] == tool and x["slug"] != slug][:8]
 
     bc_ld = {
         "@context": "https://schema.org",
@@ -397,6 +487,7 @@ def build_pseo_page(p):
 {json.dumps(faq_ld, indent=2)}
   </script>
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/spec-capture.css">
 </head>
 <body>
   <header class="site-header">
@@ -427,12 +518,21 @@ def build_pseo_page(p):
       <div class="hero-badge">📍 {html.escape(p['badge'])}</div>
       <h1 class="hero-title">{p['h1']}</h1>
       <p class="hero-lead">{html.escape(p['lead'])}</p>
-      <a href="../" class="btn btn-primary">⚡ Launch Interactive {html.escape(tmeta['name'])} &rarr;</a>
+      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
+        <a href="../" class="btn btn-primary">⚡ Launch Interactive {html.escape(tmeta['name'])} &rarr;</a>
+        <a href="#compare-markets" class="btn btn-secondary">🛡️ Compare Live A-Rated Quotes &darr;</a>
+      </div>
     </div>
   </section>
 
   <main class="main-content">
     <div class="container">
+      <section class="section-block" id="compare-markets">
+        <span class="section-kicker">Instant Online Binding</span>
+        <h2 class="section-heading">Top A-Rated Carriers for {html.escape(p['short'])}</h2>
+        <div class="csp-carriers-card" id="pseoCarrierBox" data-line="{tool}"></div>
+      </section>
+
       <section class="section-block">
         <span class="section-kicker">Jurisdiction Underwriting Standards</span>
         <h2 class="section-heading">Key Regulatory &amp; Rating Factors</h2>
@@ -461,7 +561,7 @@ def build_pseo_page(p):
 
       <section class="section-block">
         <span class="section-kicker">Other Editions</span>
-        <h2 class="section-heading">More {html.escape(tmeta['short'])} State &amp; Industry Guides</h2>
+        <h2 class="section-heading">More {html.escape(tmeta['short'])} State &amp; Trade Guides</h2>
         <div class="hub-grid">{sib_html}</div>
       </section>
     </div>
@@ -473,24 +573,37 @@ def build_pseo_page(p):
       <div class="footer-links"><a href="../../">Home</a><a href="../">Calculator</a><a href="../../sitemap.xml">Sitemap</a></div>
     </div>
   </footer>
+
+  <script src="../../js/affiliate-config.js"></script>
+  <script>
+    (function() {{
+      var box = document.getElementById('pseoCarrierBox');
+      if (!box || !window.COVERSPEC_CARRIERS) return;
+      var list = window.COVERSPEC_CARRIERS[box.getAttribute('data-line')] || [];
+      box.innerHTML = '<div class="csp-carriers-head"><span class="csp-carriers-title">⚡ Compare Instant Online Commercial Quotes</span><span class="csp-carriers-disclosure">Affiliate Partners</span></div>' +
+        '<div class="csp-carrier-list">' + list.map(function(c) {{
+          return '<div class="csp-carrier-row"><div class="csp-carrier-info"><div class="csp-carrier-top"><span class="csp-carrier-name">' + c.name + '</span><span class="csp-carrier-badge">' + c.badge + '</span></div><div class="csp-carrier-perk">' + c.perk + '</div></div><a href="' + c.url + '" target="_blank" rel="sponsored noopener noreferrer" class="csp-carrier-cta">Check Rate &rarr;</a></div>';
+        }}).join('') + '</div>';
+    }})();
+  </script>
 </body>
 </html>
 """
 
 
 def inject_hubs():
-    # Inject into each of the 3 parent calculators
     for tool in TOOLS:
         f = ROOT / tool / "index.html"
         txt = f.read_text(encoding="utf-8")
+        tool_pages = [p for p in PAGES if p["tool"] == tool]
         cards = "\n".join(
             f'          <a href="{p["slug"]}/" class="hub-card"><strong>📍 {html.escape(p["short"])} &rarr;</strong><span>{html.escape(p["badge"])}</span></a>'
-            for p in PAGES if p["tool"] == tool
+            for p in tool_pages
         )
         block = f"""<!-- PSEO_HUB_START -->
       <section class="section-block">
-        <span class="section-kicker">State &amp; Industry Editions</span>
-        <h2 class="section-heading">Jurisdiction-Specific {html.escape(TOOLS[tool]['short'])} Guides</h2>
+        <span class="section-kicker">State &amp; Trade Editions ({len(tool_pages)} Guides)</span>
+        <h2 class="section-heading">Jurisdiction &amp; Trade-Specific {html.escape(TOOLS[tool]['short'])} Guides</h2>
         <div class="hub-grid">
 {cards}
         </div>
@@ -502,23 +615,36 @@ def inject_hubs():
             txt = re.sub(r"<!-- PSEO_HUB_START -->.*?<!-- PSEO_HUB_END -->", block, txt, flags=re.S)
         f.write_text(txt, encoding="utf-8")
 
-    # Inject directory onto root index.html
+    # Inject full 45-page directory onto root index.html (grouped cleanly by tool)
     hf = ROOT / "index.html"
     htxt = hf.read_text(encoding="utf-8")
-    all_cards = "\n".join(
-        f'          <a href="{p["tool"]}/{p["slug"]}/" class="hub-card"><strong>📍 {html.escape(p["short"])}</strong><span>{html.escape(TOOLS[p["tool"]]["short"])} • {html.escape(p["badge"])}</span></a>'
-        for p in PAGES
-    )
+    htxt = htxt.replace("12 Regulatory Guides", f"{len(PAGES)} State &amp; Trade Guides")
+
+    groups = []
+    for tool in TOOLS:
+        tpages = [p for p in PAGES if p["tool"] == tool]
+        links = "\n".join(
+            f'            <li><a href="{tool}/{p["slug"]}/" style="color:#94a3b8;font-size:0.84rem;">📍 {html.escape(p["short"])}</a></li>'
+            for p in tpages
+        )
+        groups.append(f"""          <div class="panel-card" style="padding:1.15rem;">
+            <h3 style="font-size:1rem;color:var(--accent-emerald);margin-bottom:0.7rem;">{html.escape(TOOLS[tool]['short'])} ({len(tpages)} Guides)</h3>
+            <ul style="list-style:none;display:grid;gap:0.42rem;">
+{links}
+            </ul>
+          </div>""")
+
     hblock = f"""<!-- PSEO_HOME_START -->
       <section class="section-block" id="state-editions">
-        <span class="section-kicker">State &amp; Regulatory Directory</span>
-        <h2 class="section-heading">Browse by State Law &amp; Industry Regime</h2>
-        <p class="section-desc">Direct commercial underwriting guides for Texas TDI, California WCIRB/CSLB, Florida DBPR, New York Labor Law 240, HIPAA, FTC Safeguards, and SOC 2.</p>
-        <div class="hub-grid">
-{all_cards}
+        <span class="section-kicker">State &amp; Trade Directory ({len(PAGES)} Pages)</span>
+        <h2 class="section-heading">Browse by State Law, NCCI Class Code &amp; Industry</h2>
+        <p class="section-desc">Every guide is calibrated to state rating bureaus (TDI, WCIRB, NYCIRB, NCCI, DBPR) and industry compliance regimes (HIPAA, FTC Safeguards, SOC 2, NY Labor Law 240).</p>
+        <div class="tools-grid">
+{chr(10).join(groups)}
         </div>
       </section>
       <!-- PSEO_HOME_END -->"""
+
     if "<!-- PSEO_HOME_PLACEHOLDER -->" in htxt:
         htxt = htxt.replace("<!-- PSEO_HOME_PLACEHOLDER -->", hblock)
     else:
@@ -539,7 +665,8 @@ def write_sitemap():
 def verify_all():
     errs = 0
     ET.parse(ROOT / "sitemap.xml")
-    for f in ROOT.rglob("*.html"):
+    html_files = list(ROOT.rglob("*.html"))
+    for f in html_files:
         txt = f.read_text(encoding="utf-8")
         for b in re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', txt, re.S):
             try:
@@ -552,7 +679,7 @@ def verify_all():
         if txt.count("{") != txt.count("}"):
             print(f"CSS BRACE ERROR in {cf}")
             errs += 1
-    print(f"Verification complete across {len(list(ROOT.rglob('*.html')))} HTML files. Total errors: {errs}")
+    print(f"Verification complete across {len(html_files)} HTML files. Total errors: {errs}")
     assert errs == 0
 
 
@@ -562,7 +689,7 @@ def main():
         out_dir = ROOT / p["tool"] / p["slug"]
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "index.html").write_text(build_pseo_page(p), encoding="utf-8")
-    print(f"Generated {len(PAGES)} programmatic state/industry pages.")
+    print(f"Generated {len(PAGES)} programmatic state & trade SEO pages.")
     inject_hubs()
     write_sitemap()
     verify_all()

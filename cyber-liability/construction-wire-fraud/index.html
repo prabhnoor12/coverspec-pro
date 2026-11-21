@@ -84,6 +84,7 @@
 }
   </script>
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/spec-capture.css">
 </head>
 <body>
   <header class="site-header">
@@ -114,12 +115,21 @@
       <div class="hero-badge">📍 Construction ACH / BEC Fraud • Ransomware • ERP Lockout</div>
       <h1 class="hero-title">Construction &amp; GC Cyber Liability Calculator (Wire &amp; ACH Fraud)</h1>
       <p class="hero-lead">Protect commercial draw requests, subcontractor ACH payouts, and Procore/ERP job files. Estimate standalone cyber liability and Social Engineering coverage for construction firms.</p>
-      <a href="../" class="btn btn-primary">⚡ Launch Interactive Cyber Liability &amp; Breach Calculator &rarr;</a>
+      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
+        <a href="../" class="btn btn-primary">⚡ Launch Interactive Cyber Liability &amp; Breach Calculator &rarr;</a>
+        <a href="#compare-markets" class="btn btn-secondary">🛡️ Compare Live A-Rated Quotes &darr;</a>
+      </div>
     </div>
   </section>
 
   <main class="main-content">
     <div class="container">
+      <section class="section-block" id="compare-markets">
+        <span class="section-kicker">Instant Online Binding</span>
+        <h2 class="section-heading">Top A-Rated Carriers for Construction GCs — ACH &amp; Wire Fraud</h2>
+        <div class="csp-carriers-card" id="pseoCarrierBox" data-line="cyber-liability"></div>
+      </section>
+
       <section class="section-block">
         <span class="section-kicker">Jurisdiction Underwriting Standards</span>
         <h2 class="section-heading">Key Regulatory &amp; Rating Factors</h2>
@@ -151,10 +161,15 @@
 
       <section class="section-block">
         <span class="section-kicker">Other Editions</span>
-        <h2 class="section-heading">More Cyber Liability State &amp; Industry Guides</h2>
+        <h2 class="section-heading">More Cyber Liability State &amp; Trade Guides</h2>
         <div class="hub-grid"><a href="../healthcare-hipaa/" class="hub-card"><strong>📍 Healthcare &amp; Clinics — HIPAA Cyber</strong><span>HIPAA / HITECH • PHI Breach Fines • Ransomware</span></a>
 <a href="../financial-sec-ftc/" class="hub-card"><strong>📍 CPA, Finance &amp; Legal — FTC / SEC</strong><span>FTC Safeguards Rule • Wire Fraud • WISP Compliance</span></a>
-<a href="../saas-soc2/" class="hub-card"><strong>📍 B2B SaaS &amp; Tech — SOC 2 &amp; Tech E&amp;O</strong><span>SOC 2 Enterprise Contracts • $2M–$5M Cyber + Tech E&amp;O</span></a></div>
+<a href="../saas-soc2/" class="hub-card"><strong>📍 B2B SaaS &amp; Tech — SOC 2 &amp; Tech E&amp;O</strong><span>SOC 2 Enterprise Contracts • $2M–$5M Cyber + Tech E&amp;O</span></a>
+<a href="../dental-practice-hipaa/" class="hub-card"><strong>📍 Dental Practices — HIPAA Cyber</strong><span>HIPAA PHI • Practice Management EHR • Ransomware</span></a>
+<a href="../law-firm-wire-fraud/" class="hub-card"><strong>📍 Law Firms — BEC &amp; Wire Fraud</strong><span>ABA Ethics • Escrow Wire Fraud • Client Files</span></a>
+<a href="../cpa-accounting-ftc/" class="hub-card"><strong>📍 CPA &amp; Accounting — FTC WISP</strong><span>IRS Pub. 4557 • FTC Safeguards • Tax Season Ransomware</span></a>
+<a href="../ecommerce-pci-dss/" class="hub-card"><strong>📍 E-Commerce &amp; Retail — PCI-DSS</strong><span>PCI-DSS Fines • Payment Skimming • Downtime</span></a>
+<a href="../manufacturing-ransomware/" class="hub-card"><strong>📍 Manufacturing — OT Ransomware</strong><span>Plant Shutdown • Supply Chain • Extortion</span></a></div>
       </section>
     </div>
   </main>
@@ -165,5 +180,18 @@
       <div class="footer-links"><a href="../../">Home</a><a href="../">Calculator</a><a href="../../sitemap.xml">Sitemap</a></div>
     </div>
   </footer>
+
+  <script src="../../js/affiliate-config.js"></script>
+  <script>
+    (function() {
+      var box = document.getElementById('pseoCarrierBox');
+      if (!box || !window.COVERSPEC_CARRIERS) return;
+      var list = window.COVERSPEC_CARRIERS[box.getAttribute('data-line')] || [];
+      box.innerHTML = '<div class="csp-carriers-head"><span class="csp-carriers-title">⚡ Compare Instant Online Commercial Quotes</span><span class="csp-carriers-disclosure">Affiliate Partners</span></div>' +
+        '<div class="csp-carrier-list">' + list.map(function(c) {
+          return '<div class="csp-carrier-row"><div class="csp-carrier-info"><div class="csp-carrier-top"><span class="csp-carrier-name">' + c.name + '</span><span class="csp-carrier-badge">' + c.badge + '</span></div><div class="csp-carrier-perk">' + c.perk + '</div></div><a href="' + c.url + '" target="_blank" rel="sponsored noopener noreferrer" class="csp-carrier-cta">Check Rate &rarr;</a></div>';
+        }).join('') + '</div>';
+    })();
+  </script>
 </body>
 </html>
