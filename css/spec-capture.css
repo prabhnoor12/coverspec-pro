@@ -372,6 +372,164 @@
   margin-bottom: 0.7rem;
 }
 
+/* Matched A-Rated Carriers Shortlist (UX-Native Affiliate Strip) */
+.csp-carriers-card {
+  background: #0d1526;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+}
+
+.csp-carriers-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.csp-carriers-title {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.csp-carriers-disclosure {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.csp-carrier-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.csp-carrier-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: #080e1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9px;
+  padding: 0.7rem 0.85rem;
+  transition: border-color 0.15s ease;
+}
+
+.csp-carrier-row:hover {
+  border-color: rgba(16, 185, 129, 0.45);
+}
+
+.csp-carrier-info {
+  min-width: 0;
+}
+
+.csp-carrier-top {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.15rem;
+}
+
+.csp-carrier-name {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.csp-carrier-badge {
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+}
+
+.csp-carrier-perk {
+  font-size: 0.76rem;
+  color: #94a3b8;
+}
+
+.csp-carrier-cta {
+  flex: 0 0 auto;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  border-radius: 7px;
+  padding: 0 0.75rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.csp-carrier-cta:hover {
+  background: #10b981;
+  color: #060b14;
+  text-decoration: none;
+}
+
+/* Mobile-Only Slim Sticky Bottom CTA */
+.csp-mobile-sticky {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .csp-carrier-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .csp-mobile-sticky {
+    position: fixed;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 9500;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(13, 21, 38, 0.96);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    border-radius: 11px;
+    padding: 0.42rem 0.5rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+  }
+  .csp-mobile-sticky[hidden] {
+    display: none !important;
+  }
+  .csp-mobile-sticky-btn {
+    flex: 1;
+    height: 36px;
+    background: #10b981;
+    color: #060b14;
+    border: none;
+    border-radius: 7px;
+    padding: 0 0.8rem;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .csp-mobile-dismiss {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.25rem;
+    padding: 0.2rem 0.4rem;
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 560px) {
   .csp-form-grid,
   .csp-timeline-grid {
@@ -381,7 +539,9 @@
 
 @media print {
   .csp-bar,
-  .csp-overlay {
+  .csp-overlay,
+  .csp-carriers-card,
+  .csp-mobile-sticky {
     display: none !important;
   }
 }

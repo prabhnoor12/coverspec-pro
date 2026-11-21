@@ -96,6 +96,56 @@
     `;
     resultsCol.insertBefore(bar, resultsCol.children[1] || null);
 
+    // Matched A-Rated Carriers Shortlist (Affiliate + Broker Discovery Card)
+    const carriers = (window.COVERSPEC_CARRIERS && window.COVERSPEC_CARRIERS[cfg.line]) || [];
+    if (carriers.length > 0 && !document.getElementById('cspCarriersCard')) {
+      const cCard = document.createElement('div');
+      cCard.id = 'cspCarriersCard';
+      cCard.className = 'csp-carriers-card';
+      cCard.innerHTML = `
+        <div class="csp-carriers-head">
+          <span class="csp-carriers-title">⚡ Instant A-Rated Markets for This Profile</span>
+          <span class="csp-carriers-disclosure">Partner Links</span>
+        </div>
+        <div class="csp-carrier-list">
+          ${carriers.map((c) => `
+            <div class="csp-carrier-row">
+              <div class="csp-carrier-info">
+                <div class="csp-carrier-top">
+                  <span class="csp-carrier-name">${c.name}</span>
+                  <span class="csp-carrier-badge">${c.badge}</span>
+                </div>
+                <div class="csp-carrier-perk">${c.perk}</div>
+              </div>
+              <a href="${c.url}" target="_blank" rel="sponsored noopener noreferrer" class="csp-carrier-cta">Check Rate &rarr;</a>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      resultsCol.appendChild(cCard);
+    }
+
+    // Slim Mobile-Only Sticky CTA
+    const mobileSticky = document.createElement('div');
+    mobileSticky.id = 'cspMobileSticky';
+    mobileSticky.className = 'csp-mobile-sticky';
+    mobileSticky.hidden = true;
+    mobileSticky.innerHTML = `
+      <button type="button" class="csp-mobile-sticky-btn" id="cspMobileBtn">🛡️ Compare Binding Quotes →</button>
+      <button type="button" class="csp-mobile-dismiss" id="cspMobileDismiss" aria-label="Dismiss">&times;</button>
+    `;
+    document.body.appendChild(mobileSticky);
+
+    let mobileDismissed = false;
+    mobileSticky.querySelector('#cspMobileDismiss')?.addEventListener('click', () => {
+      mobileDismissed = true;
+      mobileSticky.hidden = true;
+    });
+    window.addEventListener('scroll', () => {
+      if (mobileDismissed) return;
+      mobileSticky.hidden = window.scrollY < 300;
+    }, { passive: true });
+
     const overlay = document.createElement('div');
     overlay.id = 'cspOverlay';
     overlay.className = 'csp-overlay';
@@ -157,7 +207,10 @@
           <div class="csp-success-icon">✓</div>
           <h3 class="csp-modal-title" style="margin-bottom:0.4rem;">Underwriting Summary Saved!</h3>
           <p class="csp-sub" id="cspSuccessMsg" style="margin-bottom:1rem;"></p>
-          <button type="button" class="csp-btn-primary" id="cspPrintNow" style="width:100%;">🖨️ Print / Save PDF Worksheet Now</button>
+          <div style="display:grid;gap:0.55rem;">
+            <button type="button" class="csp-btn-primary" id="cspPrintNow" style="width:100%;">🖨️ Print / Save PDF Worksheet Now</button>
+            ${carriers[0] ? `<a href="${carriers[0].url}" target="_blank" rel="sponsored noopener noreferrer" class="csp-btn-secondary" style="width:100%;text-decoration:none;">⚡ Check Instant Rate at ${carriers[0].name} &rarr;</a>` : ''}
+          </div>
         </div>
       </div>
     `;
@@ -175,9 +228,12 @@
     function sync() {
       const { p, s, alertTxt } = readSpec();
       const qBtn = document.getElementById('cspQuoteBtn');
+      const mBtn = document.getElementById('cspMobileBtn');
       const alertEl = document.getElementById('cspCodeAlert');
       const pill = document.getElementById('cspSpecPill');
-      if (qBtn) qBtn.textContent = cfg.btnLabel(p);
+      const label = cfg.btnLabel(p);
+      if (qBtn) qBtn.textContent = label;
+      if (mBtn) mBtn.textContent = label;
       if (alertEl) {
         alertEl.textContent = alertTxt ? `⚠️ ${alertTxt}` : '';
         alertEl.hidden = !alertTxt;
@@ -246,6 +302,7 @@
     }
 
     document.getElementById('cspQuoteBtn')?.addEventListener('click', () => openModal('quote'));
+    document.getElementById('cspMobileBtn')?.addEventListener('click', () => openModal('quote'));
     document.getElementById('cspPdfBtn')?.addEventListener('click', () => openModal('pdf'));
     document.getElementById('cspCloseBtn')?.addEventListener('click', () => { overlay.hidden = true; });
     overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.hidden = true; });
