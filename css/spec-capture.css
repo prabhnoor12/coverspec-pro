@@ -1,0 +1,387 @@
+/* ==========================================================================
+   CoverSpec Pro™ — Contextual Underwriting Spec Capture & Quote Engine
+   Compact 36px buttons, emerald trust palette, zero layout bloat
+   ========================================================================== */
+
+.csp-bar {
+  background: linear-gradient(145deg, #0d192d, #11223a);
+  border: 1px solid rgba(16, 185, 129, 0.38);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  color: #f8fafc;
+}
+
+.csp-bar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.55rem;
+}
+
+.csp-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #10b981;
+}
+
+.csp-trust-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #06b6d4;
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+}
+
+.csp-code-alert {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fde68a;
+  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.csp-headline {
+  font-size: 0.98rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem;
+}
+
+.csp-sub {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin: 0 0 0.85rem;
+}
+
+.csp-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.csp-btn-primary {
+  flex: 0 0 auto;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: #10b981;
+  color: #060b14;
+  border: none;
+  border-radius: 7px;
+  padding: 0 0.9rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.csp-btn-primary:hover {
+  background: #34d399;
+}
+
+.csp-btn-secondary {
+  flex: 0 0 auto;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 7px;
+  padding: 0 0.8rem;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.csp-btn-secondary:hover {
+  border-color: #10b981;
+}
+
+.csp-btn-ghost {
+  flex: 0 0 auto;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 7px;
+  padding: 0 0.72rem;
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.csp-btn-ghost:hover {
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* Modal */
+.csp-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 15, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 9999;
+}
+
+.csp-overlay[hidden] {
+  display: none !important;
+}
+
+.csp-modal {
+  width: 100%;
+  max-width: 530px;
+  max-height: 92dvh;
+  overflow-y: auto;
+  background: #0d1526;
+  color: #f8fafc;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 16px;
+  padding: 1.45rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+.csp-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.csp-modal-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-top: 0.2rem;
+}
+
+.csp-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.csp-spec-pill {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 9px;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 1rem;
+  font-size: 0.84rem;
+}
+
+.csp-spec-pill strong {
+  color: #10b981;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.csp-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.csp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.csp-field.full {
+  grid-column: 1 / -1;
+}
+
+.csp-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+.csp-input {
+  width: 100%;
+  background: #060b14;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.csp-input:focus {
+  outline: none;
+  border-color: #10b981;
+}
+
+.csp-input.invalid {
+  border-color: #ef4444;
+}
+
+.csp-zip-ok {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.csp-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.csp-time-pill {
+  background: #060b14;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 0.5rem 0.4rem;
+  color: #94a3b8;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+
+.csp-time-pill span {
+  display: block;
+  font-size: 0.67rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.csp-time-pill.active {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  color: #fde68a;
+}
+
+.csp-optin {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 9px;
+  padding: 0.7rem 0.85rem;
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+.csp-optin input {
+  margin-top: 0.2rem;
+  accent-color: #10b981;
+}
+
+.csp-error {
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fecaca;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+}
+
+.csp-submit {
+  width: 100%;
+  margin-top: 0.95rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 0.78rem 1rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.csp-trust-foot {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.csp-escape {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.csp-escape-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 0.76rem;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.csp-success {
+  text-align: center;
+  padding: 0.6rem 0.2rem;
+}
+
+.csp-success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.16);
+  border: 2px solid #10b981;
+  color: #10b981;
+  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 560px) {
+  .csp-form-grid,
+  .csp-timeline-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .csp-bar,
+  .csp-overlay {
+    display: none !important;
+  }
+}
